@@ -8,25 +8,32 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
     this.size = 0;
   }
+
+  append(data) {
+    const node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+      this.tail = node;
+    }
+    this.size += 1;
+  }
   
-  insertFirst(data) {
+  prepend(data) {
     this.head = new Node(data, this.head);
     this.size += 1;
   }
 
-  insertLast(data) {
-    let node = new Node(data);
-    let current = this.head;
-    while (current.next) {
-      current = current.next;
-    }
-    current.next = node;
-    this.size += 1;
-  }
-
-  insertAtIndex(index, data) {
+  insertAt(index, data) {
     let node = new Node(data);
     if (index >= this.size || index < 0) {
       return
@@ -45,7 +52,7 @@ class LinkedList {
     }
   }
 
-  remoweFromIndex(index) {
+  remoweAt(index) {
     if (index >= this.size || index < 0) {
       return
     } else {
@@ -61,7 +68,11 @@ class LinkedList {
     }
   }
 
-  getDataAtIndex(index) {
+  pop() {
+    this.remoweAt(this.size -1);
+  }
+
+  atIndex(index) {
     if (index >= this.size || index < 0) {
       return
     } else {
@@ -75,12 +86,38 @@ class LinkedList {
     }
   }
 
+  find(data) {
+    let current = this.head;
+    let currentIndex = 0;
+    while (current) {
+      if (current.data === data) {
+        return currentIndex;
+      }
+      current = current.next;
+      currentIndex += 1;
+    }
+    return null;
+  }
+
+  contains(data) {
+    let current = this.head;
+    let currentIndex = 0;
+    while (current) {
+      if (current.data === data) {
+        return true;
+      }
+      current = current.next;
+      currentIndex += 1;
+    }
+    return false;
+  }
+
   clearList() {
     this.head = null;
     this.size = 0;
   }
 
-  printList() {
+  toString() {
     let current = this.head;
     while(current) {
       console.log(current.data);
@@ -89,3 +126,9 @@ class LinkedList {
   }
 }
 
+const list = new LinkedList();
+list.append('a');
+list.append('x');
+list.append('t');
+list.pop();
+list.toString()
