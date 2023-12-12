@@ -134,13 +134,14 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-list.append('1');  // ( 1 ) -> null
-list.append('2');  // ( 1 ) -> ( 2 ) -> null
-list.append('3');  // ( 1 ) -> ( 2 ) -> ( 3 ) -> null
-list.prepend('0');  // ( 0 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> null
-list.insertAt(0, 'A') ; // ( 'A' ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> null
-list.pop(); // ( 'A' ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> null
-list.atIndex(0);  // ( 0 )
-list.find(2) // 2
-list.contains('A');  // true
-list.toString();   // ( A ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> null
+
+list.append('1');          // ( 1 ) -> null
+list.append('2');          // ( 1 ) -> ( 2 ) -> null
+list.append('3');          // ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+list.prepend('0');         // ( 0 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+list.insertAt(0, 'A') ;    // ( 'A' ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+list.pop();                // ( 'A' ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> null
+list.atIndex(0);           // ( 0 )
+list.find(2)               // 2
+list.contains('A');        // true
+list.toString();           // ( A ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> null
