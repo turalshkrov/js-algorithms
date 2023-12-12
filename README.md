@@ -5,3 +5,4 @@ JavaScript projects for The Odin Project
     * Fibonnaci
     * Merge sort
 2. Linked list
+3. Binary Search Trees

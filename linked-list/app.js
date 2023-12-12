@@ -56,7 +56,7 @@ class LinkedList {
     }
   }
 
-  remoweAt(index) {
+  removeAt(index) {
     if (index >= this.size || index < 0) {
       return
     } else {
@@ -73,7 +73,7 @@ class LinkedList {
   }
 
   pop() {
-    this.remoweAt(this.size -1);
+    this.removeAt(this.size -1);
   }
 
   atIndex(index) {
