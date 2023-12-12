@@ -37,7 +37,11 @@ class LinkedList {
     let node = new Node(data);
     if (index >= this.size || index < 0) {
       return
-    } else {
+    } 
+    else if(index === 0) {
+      this.prepend(data);
+    }
+    else {
       let current = this.head;
       let currentIndex = 0;
       let previus;
@@ -118,17 +122,25 @@ class LinkedList {
   }
 
   toString() {
+    let resultString = '';
     let current = this.head;
     while(current) {
-      console.log(current.data);
+      resultString += `( ${current.data} ) -> `
       current = current.next;
     }
+    resultString += 'null';
+    console.log(resultString);
   }
 }
 
 const list = new LinkedList();
-list.append('a');
-list.append('x');
-list.append('t');
-list.pop();
-list.toString()
+list.append('1');  // ( 1 ) -> null
+list.append('2');  // ( 1 ) -> ( 2 ) -> null
+list.append('3');  // ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+list.prepend('0');  // ( 0 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+list.insertAt(0, 'A') ; // ( 'A' ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+list.pop(); // ( 'A' ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> null
+list.atIndex(0);  // ( 0 )
+list.find(2) // 2
+list.contains('A');  // true
+list.toString();   // ( A ) -> ( 0 ) -> ( 1 ) -> ( 2 ) -> null
